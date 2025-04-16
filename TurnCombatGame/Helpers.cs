@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace TurnCombatGame
 {
-    class PlayerHealService
+    public static class Helpers
     {
-        int pHp = Player.PlayerStats();
-       // int pHeal = Player.PlayerHeal();
+        public static readonly Random Random = new Random();
     }
 }
