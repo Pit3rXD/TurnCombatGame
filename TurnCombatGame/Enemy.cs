@@ -6,28 +6,32 @@ using System.Threading.Tasks;
 
 namespace TurnCombatGame
 {
-    class Enemy
+    public class Enemy : PlayerBase
     {
-        static readonly Random random = new Random();
-        public static int EnemyHp()
+       
+    
+        public int EnemyChoice(PlayerBase playerBase, Enemy enemy)
         {
-            int enemyHp = 10;
-            return enemyHp;
-        }
-        public static int EnemyAttack()
-        {
-            int enemyAttack = random.Next(0, 4);
-            return enemyAttack;
-        }
-        public static int EnemyHeal(int enemyHp)
-        {
-            int enemyHeal = random.Next(1, 4);
-            return enemyHp + enemyHeal;
-        }
-        public static int EnemyChoice()
-        {
-            int enemyChoice = random.Next(1, 3);
-            return enemyChoice;
+            int enemyChoice = Helpers.Random.Next(1, 11);
+            switch (enemyChoice)
+            {
+                case int c when c >= 8:
+                    int oldHp = HP;
+                    HP = Heal(HP);
+                    int heald = HP - oldHp;
+                    Console.WriteLine($"The opponent heals for {heald} points. They now have {HP} HP.");
+                    return 0;
+
+                case int c when c >= 1:
+                    int eDamage = Attack();
+                    playerBase.HP -= eDamage;
+                    Console.WriteLine($"The opponent attack for {eDamage} points. You now have {playerBase.HP} HP.");
+                    return eDamage;
+
+                default:
+                    Console.WriteLine("The opponent hesitates...");
+                    return 0;
+            }
         }
     }
 }
