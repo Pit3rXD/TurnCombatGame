@@ -24,7 +24,6 @@ namespace TurnCombatGame
                     {
                         Console.WriteLine($"Are you attacking(a) or healing(h)?");
                         string input = Console.ReadLine();
-
                         try
                         {
                             if (string.IsNullOrEmpty(input) || input.Length != 1)
@@ -40,7 +39,6 @@ namespace TurnCombatGame
                             Console.WriteLine(ex.Message);
                         }
                     }
-
                     int pDamage = playerBase.MoveOnChoice(pChoice, enemy, playerBase);
                     if (pChoice == 'a')
                     {
@@ -87,6 +85,7 @@ namespace TurnCombatGame
                         Console.WriteLine(ex.Message);
                     }
                 }
+
                 if (yesOrNo == 'y')
                 {
                     continue;
