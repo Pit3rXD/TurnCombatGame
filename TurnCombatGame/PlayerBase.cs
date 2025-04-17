@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace TurnCombatGame
 {
@@ -26,7 +23,7 @@ namespace TurnCombatGame
                     return 0;
                     
                 default:
-                    throw new Exception("Invalid input");
+                    throw new InvalidDataException("Invalid input");
             }
         }
 

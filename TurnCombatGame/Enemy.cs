@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TurnCombatGame
 {
     public class Enemy : PlayerBase
     {
-       
-    
+        //Czyść takie niepotrzebne entery, dziwnie to wygląda
         public int EnemyChoice(PlayerBase playerBase, Enemy enemy)
         {
             int enemyChoice = Helpers.Random.Next(1, 11);
